@@ -17,8 +17,8 @@ export const store = new MongoDBStore({
     collection: 'sessions'
 });
 
-export const app = express();
-app.use(session({
+export const app = express();  
+app.use(session({ 
     secret: 'superSecret',
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
@@ -28,7 +28,7 @@ app.use(session({
     saveUninitialized: true,
 }));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static('build'))
+app.use(express.static('build'))  
 app.use(bodyParser.json({ limit: '50mb' }));
 
 app.get('/', (req, res) => {
