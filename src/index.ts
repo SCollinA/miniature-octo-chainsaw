@@ -33,7 +33,7 @@ app.use(bodyParser.json({ limit: "50mb" }));
 
 app.get("/", (req, res) => {
     res.send("hello world!");
-}); 
+});
 
 app.listen(process.env.PORT, () =>
 console.log(`TypeScript-Express app listening on port ${process.env.PORT}!!`));
