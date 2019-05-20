@@ -12,7 +12,7 @@ mongoose.connect(
         useCreateIndex: true
     }
 );
-const store = new MongoDBStore({
+export const store = new MongoDBStore({
     uri: 'mongodb://localhost:27017/ts-express-demo',
     collection: 'sessions'
 });
@@ -30,6 +30,10 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('build'))
 app.use(bodyParser.json({ limit: '50mb' }));
+
+app.get('/', (req, res) => {
+    res.send('hello world!')
+}) 
 
 app.listen(process.env.PORT, () => 
 console.log(`TypeScript-Express app listening on port ${process.env.PORT}!!`))

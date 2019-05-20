@@ -1,7 +1,18 @@
-import { app } from './index';
+import { app, store } from './index';
+import { request } from 'http';
 
 describe('server', () => {
     it('is running', () => {
-        expect(app).toBeTruthy()
-    })
-})
+        request('http://localhost:4000', response => {
+            expect(response.statusCode).toBe(200);
+        });
+    });
+});
+
+// describe('store', () => {
+//     it('is connected', () => {
+        
+//         expect(store).toBeTruthy()
+//     })
+// })
+
