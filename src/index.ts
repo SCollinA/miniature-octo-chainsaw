@@ -17,7 +17,7 @@ const store = new MongoDBStore({
     collection: 'sessions'
 });
 
-const app = express();
+export const app = express();
 app.use(session({
     secret: 'superSecret',
     cookie: {
